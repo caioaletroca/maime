@@ -16,3 +16,11 @@ export function getMoviesPopular() {
       (await api.get(`/3/movie/popular?api_key=${import.meta.env.VITE_MOVIE_DB_API_KEY}`)).data
   })
 }
+
+export function getMovieByID(id: number) {
+  return useQuery<Movie>({
+    queryKey: [id],
+    queryFn: async () =>
+      (await api.get(`/3/movie/${id}?api_key=${import.meta.env.VITE_MOVIE_DB_API_KEY}`)).data
+  })
+}
