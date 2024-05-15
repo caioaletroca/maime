@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getMoviesPopular } from '@/api'
-import BottomNavigation from '@/components/BottomNavigation.vue'
-import Header from '@/components/Header.vue'
+import BottomNavigation from '@/components/layout/BottomNavigation.vue'
+import Header from '@/components/layout/Header.vue'
 import MovieCard from '@/components/MovieCard.vue'
 
 const { data } = getMoviesPopular()

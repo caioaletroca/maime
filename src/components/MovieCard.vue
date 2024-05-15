@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { getPosterPath } from '@/lib'
 import type { Movie } from '@/types'
 import { useRouter } from 'vue-router'
 
@@ -11,6 +12,6 @@ const handleClick = () => router.push(`/movie/${movie.id}`)
 
 <template>
   <v-sheet :elevation="2" @click="handleClick">
-    <v-img cover :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"></v-img>
+    <v-img cover :src="getPosterPath(movie.poster_path)"></v-img>
   </v-sheet>
 </template>
