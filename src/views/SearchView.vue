@@ -7,6 +7,7 @@ import type { Movie } from '@/types'
 import PageLoading from '@/components/PageLoading.vue'
 import SearchHeader from '@/components/layout/SearchHeader.vue'
 import { useMovieSearch } from '@/composables'
+import BottomNavigation from '@/components/layout/BottomNavigation.vue'
 
 const router = useRouter()
 
@@ -39,5 +40,6 @@ const { data, isLoading } = getMovieSearch(() => query)
         <v-list-item-subtitle>{{ dayjs(movie.release_date).year() }}</v-list-item-subtitle>
       </v-list-item>
     </v-list>
+    <BottomNavigation />
   </v-main>
 </template>

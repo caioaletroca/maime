@@ -21,6 +21,16 @@ const router = createRouter({
       path: '/search',
       name: 'search',
       component: () => import('../views/SearchView.vue')
+    },
+    {
+      path: '/configuration',
+      name: 'configuration',
+      component: () => import('../views/ConfigurationView.vue')
+    },
+    {
+      path: '/theme',
+      name: 'theme',
+      component: () => import('../views/ThemeView.vue')
     }
   ]
 })

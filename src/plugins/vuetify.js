@@ -12,7 +12,11 @@ export default createVuetify({
   components,
   directives,
   theme: {
-    defaultTheme: 'dark'
+    defaultTheme: 'dark',
+    themes: {
+      light: { dark: false },
+      dark: { dark: true }
+    }
   },
   icons: {
     defaultSet: 'mdi',

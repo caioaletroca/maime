@@ -9,7 +9,7 @@ const { data } = getMoviesPopular()
 
 <template>
   <main>
-    <Header />
+    <Header search />
     <v-main>
       <v-container>
         <v-row>
