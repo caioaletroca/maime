@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, toValue, watch } from 'vue'
-import { getPosterPath, getQueryPath } from '@/lib'
-import { useRoute, useRouter } from 'vue-router'
+import { getPosterPath } from '@/lib'
+import { useRouter } from 'vue-router'
 import { getMovieSearch } from '@/api/movies'
 import dayjs from 'dayjs'
 import type { Movie } from '@/types'
@@ -33,13 +32,11 @@ const { data, isLoading } = getMovieSearch(() => query)
         :key="movie.id"
         :onclick="() => handleClick(movie)"
       >
-        <v-list-item-avatar>
+        <template v-slot:prepend>
           <v-img width="60" height="60" :src="getPosterPath(movie.poster_path)"></v-img>
-        </v-list-item-avatar>
-        <v-list-item-content>
-          <v-list-item-title>{{ movie.title }}</v-list-item-title>
-          <v-list-item-subtitle>{{ dayjs(movie.release_date).year() }}</v-list-item-subtitle>
-        </v-list-item-content>
+        </template>
+        <v-list-item-title>{{ movie.title }}</v-list-item-title>
+        <v-list-item-subtitle>{{ dayjs(movie.release_date).year() }}</v-list-item-subtitle>
       </v-list-item>
     </v-list>
   </v-main>

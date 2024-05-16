@@ -7,11 +7,11 @@ export default createI18n({
   fallbackLocale: 'en',
   messages: {
     'en-US': {
-      ...en,
+      $vuetify: en,
       ...localesEnglish
     },
     pt: {
-      ...pt
+      $vuetify: pt
     }
   }
 })
