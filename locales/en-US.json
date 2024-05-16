@@ -2,6 +2,18 @@
   "layout": {
     "search": "Search..."
   },
+  "page": {
+    "configuration": {
+      "title": "Configuration",
+      "theme": "Theme",
+      "language": "Language"
+    },
+    "theme": {
+      "default": "System",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
   "movie": {
     "original_title": "Original Title"
   }
