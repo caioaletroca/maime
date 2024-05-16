@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { themeKey } from '@/types'
 import { computed, inject } from 'vue'
 
-const { theme } = inject('theme')
+const { theme } = inject(themeKey)!
 
 const currentTheme = computed(() => {
   if (theme.value === 'system') {

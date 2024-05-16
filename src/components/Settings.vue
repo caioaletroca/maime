@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SettingsTheme } from '@/types'
+import { themeKey, type SettingsTheme } from '@/types'
 import { onMounted, provide, ref } from 'vue'
 
 type Settings = {
@@ -29,7 +29,7 @@ onMounted(() => {
   loadCache()
 })
 
-provide('theme', { theme, setTheme })
+provide(themeKey, { theme, setTheme })
 </script>
 
 <template>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Header from '@/components/layout/Header.vue'
+import { themeKey } from '@/types'
 import { inject } from 'vue'
 
-const { theme, setTheme } = inject('theme')
-console.log(theme.value)
+const { theme, setTheme } = inject(themeKey)!
 </script>
 
 <template>
