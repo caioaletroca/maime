@@ -1,8 +1,10 @@
 import { createI18n } from 'vue-i18n'
 import { en, pt } from 'vuetify/locale'
 import localesEnglish from '@/../locales/en-US.json'
+import localesPortuguese from '@/../locales/pt-BR.json'
 
 export default createI18n({
+  legacy: false,
   locale: 'en-US',
   fallbackLocale: 'en',
   messages: {
@@ -10,8 +12,9 @@ export default createI18n({
       $vuetify: en,
       ...localesEnglish
     },
-    pt: {
-      $vuetify: pt
+    'pt-BR': {
+      $vuetify: pt,
+      ...localesPortuguese
     }
   }
 })
