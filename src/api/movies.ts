@@ -1,17 +1,32 @@
 import api from './api'
-import { useQuery } from '@tanstack/vue-query'
-import type { Movie, PaginationResponse, Locale } from '@/types'
+import { useQuery, useInfiniteQuery } from '@tanstack/vue-query'
+import type { Movie, PaginationResponse, InfinitePaginationResponse, Locale } from '@/types'
 import { toValue, type ComputedRef } from 'vue'
-import { getQueryPath } from '@/lib/getQueryPath'
+import { getQueryPath, getNextPageParam, getSelectInfinitePaginatedData } from '@/lib'
 
 type RequestQuery = {
   language?: Locale
 }
 
 export function getMoviesPopular(params?: RequestQuery) {
-  return useQuery<PaginationResponse<Movie>>({
+  return useInfiniteQuery<InfinitePaginationResponse<Movie>>({
     queryKey: ['popular_movies'],
-    queryFn: async () => (await api.get(getQueryPath('/3/movie/popular', params))).data
+    queryFn: async ({ pageParam }: any) => {
+      return (
+        await api.get(
+          getQueryPath('/3/movie/popular', {
+            ...params,
+            ...(pageParam
+              ? {
+                  page: pageParam
+                }
+              : {})
+          })
+        )
+      ).data
+    },
+    getNextPageParam,
+    select: getSelectInfinitePaginatedData<Movie>
   })
 }
 

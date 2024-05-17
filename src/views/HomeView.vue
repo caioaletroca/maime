@@ -7,20 +7,27 @@ import { useI18n } from 'vue-i18n'
 
 const i18n = useI18n()
 
-const { data } = getMoviesPopular({ language: i18n.locale.value })
+const { data, fetchNextPage } = getMoviesPopular({ language: i18n.locale.value })
+
+const handleLoad = ({ done }: { done: (status: string) => void }) => {
+  fetchNextPage()
+  done('ok')
+}
 </script>
 
 <template>
   <main>
     <Header search />
     <v-main>
-      <v-container>
-        <v-row>
-          <v-col v-if="data?.results" v-for="movie in data.results" cols="6">
-            <MovieCard :key="movie.id" :movie="movie" />
-          </v-col>
-        </v-row>
-      </v-container>
+      <v-infinite-scroll :items="data" :onLoad="handleLoad">
+        <v-container>
+          <v-row>
+            <v-col v-if="data" v-for="movie in data" cols="6">
+              <MovieCard :key="movie.id" :movie="movie" />
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-infinite-scroll>
     </v-main>
     <BottomNavigation />
   </main>

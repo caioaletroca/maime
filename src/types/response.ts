@@ -4,3 +4,7 @@ export type PaginationResponse<T> = {
   total_pages: number
   total_results: number
 }
+
+export type InfinitePaginationResponse<T> = {
+  pages: PaginationResponse<T>[]
+}
