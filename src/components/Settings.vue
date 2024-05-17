@@ -9,7 +9,7 @@ type Settings = {
 
 const defaultSettings: Settings = {
   theme: 'system',
-  locale: 'en-US'
+  locale: ''
 }
 
 const theme = ref<SettingsTheme>(defaultSettings.theme)
