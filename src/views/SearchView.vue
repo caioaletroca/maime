@@ -8,20 +8,28 @@ import PageLoading from '@/components/PageLoading.vue'
 import SearchHeader from '@/components/layout/SearchHeader.vue'
 import { useMovieSearch } from '@/composables'
 import BottomNavigation from '@/components/layout/BottomNavigation.vue'
+import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
 
 const router = useRouter()
+const i18n = useI18n()
 
 const handleClick = (movie: Movie) => {
   router.push(`/movie/${movie.id}`)
 }
 
-const { query, value } = useMovieSearch()
-const { data, isLoading } = getMovieSearch(() => query)
+const search = useMovieSearch('/search')
+const { data, isLoading } = getMovieSearch(
+  computed(() => ({
+    query: search.value,
+    language: i18n.locale.value
+  }))
+)
 </script>
 
 <template>
   <v-main>
-    <SearchHeader back v-model="value" />
+    <SearchHeader back v-model="search" />
 
     <v-main v-if="!(data && data?.results) && isLoading">
       <PageLoading />

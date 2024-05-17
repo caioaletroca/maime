@@ -31,6 +31,11 @@ const router = createRouter({
       path: '/theme',
       name: 'theme',
       component: () => import('../views/ThemeView.vue')
+    },
+    {
+      path: '/language',
+      name: 'language',
+      component: () => import('../views/LanguageView.vue')
     }
   ]
 })

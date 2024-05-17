@@ -1,17 +1,14 @@
-import { computed, onMounted, ref, toValue, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import debounce from 'lodash.debounce'
 import isEmpty from 'lodash.isempty'
 import { getQueryPath } from '@/lib'
 import { useRoute, useRouter } from 'vue-router'
 
-export function useMovieSearch() {
+export function useMovieSearch(basePath: string) {
   const route = useRoute()
   const router = useRouter()
 
-  const search = ref('')
-  const query = computed(() => ({
-    query: search.value
-  }))
+  const search = ref<string>('')
 
   onMounted(() => {
     const { query } = route.query
@@ -29,9 +26,16 @@ export function useMovieSearch() {
   }
 
   watch(
-    query,
-    debounce(() => handleSubmit(getQueryPath('/search', toValue(query))), 500)
+    search,
+    debounce(() => {
+      console.log(Boolean(search.value))
+      if (search.value) {
+        handleSubmit(getQueryPath(basePath, { query: search.value }))
+      } else {
+        handleSubmit(basePath)
+      }
+    }, 500)
   )
 
-  return { query, value: search }
+  return search
 }

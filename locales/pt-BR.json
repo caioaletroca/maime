@@ -1,0 +1,27 @@
+{
+  "layout": {
+    "search": "Pesquisar..."
+  },
+  "page": {
+    "configuration": {
+      "title": "Configurações",
+      "theme": "Tema",
+      "language": "Idioma"
+    },
+    "theme": {
+      "default": "Padrão do Sistema",
+      "light": "Tema Claro",
+      "dark": "Tema Escuro"
+    },
+    "language": {
+      "title": "Idioma"
+    }
+  },
+  "movie": {
+    "original_title": "Título original"
+  },
+  "languages": {
+    "english": "Inglês",
+    "portuguese": "Português"
+  }
+}

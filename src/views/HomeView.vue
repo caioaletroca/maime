@@ -3,8 +3,11 @@ import { getMoviesPopular } from '@/api'
 import BottomNavigation from '@/components/layout/BottomNavigation.vue'
 import Header from '@/components/layout/Header.vue'
 import MovieCard from '@/components/MovieCard.vue'
+import { useI18n } from 'vue-i18n'
 
-const { data } = getMoviesPopular()
+const i18n = useI18n()
+
+const { data } = getMoviesPopular({ language: i18n.locale.value })
 </script>
 
 <template>

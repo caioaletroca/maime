@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router'
 import Settings from '@/components/Settings.vue'
 import Theme from './components/Theme.vue'
+import Language from './components/Language.vue'
 </script>
 
 <template>
@@ -10,7 +11,9 @@ import Theme from './components/Theme.vue'
   <v-app>
     <Settings>
       <Theme>
-        <RouterView />
+        <Language>
+          <RouterView />
+        </Language>
       </Theme>
     </Settings>
   </v-app>

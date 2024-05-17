@@ -1,3 +1,5 @@
 export * from './movie'
 export * from './genre'
 export * from './settings'
+export * from './languages'
+export * from './response'

@@ -4,10 +4,12 @@ import Header from '@/components/layout/Header.vue'
 import { getMovieByID } from '@/api'
 import { useRoute } from 'vue-router'
 import PageLoading from '@/components/PageLoading.vue'
+import { useI18n } from 'vue-i18n'
 
 const { params } = useRoute()
+const i18n = useI18n()
 
-const { isLoading, data } = getMovieByID(params.id)
+const { isLoading, data } = getMovieByID(params.id as string, { language: i18n.locale.value })
 </script>
 
 <template>
@@ -17,7 +19,7 @@ const { isLoading, data } = getMovieByID(params.id)
     <PageLoading />
   </v-main>
 
-  <v-main v-else>
+  <v-main v-else-if="data">
     <v-img :src="`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`" />
     <v-sheet class="p-5" elevation="2">
       <div class="text-h5 mb-2">{{ data?.title }}</div>

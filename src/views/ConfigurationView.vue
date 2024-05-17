@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BottomNavigation from '@/components/layout/BottomNavigation.vue'
 import Header from '@/components/layout/Header.vue'
 import { useRouter } from 'vue-router'
 
@@ -22,5 +23,6 @@ const router = useRouter()
         <v-list-item-title>{{ $t('page.configuration.language') }}</v-list-item-title>
       </v-list-item>
     </v-list>
+    <BottomNavigation />
   </v-main>
 </template>
