@@ -15,6 +15,9 @@
     },
     "language": {
       "title": "Language"
+    },
+    "notfound": {
+      "text": "Page not found"
     }
   },
   "movie": {

@@ -8,15 +8,15 @@ import Language from './components/Language.vue'
 <template>
   <header></header>
 
-  <v-app>
-    <Settings>
-      <Theme>
-        <Language>
+  <Settings>
+    <Theme>
+      <Language>
+        <v-app>
           <RouterView />
-        </Language>
-      </Theme>
-    </Settings>
-  </v-app>
+        </v-app>
+      </Language>
+    </Theme>
+  </Settings>
 </template>
 
 <style scoped></style>

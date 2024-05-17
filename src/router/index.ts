@@ -36,6 +36,11 @@ const router = createRouter({
       path: '/language',
       name: 'language',
       component: () => import('../views/LanguageView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'notfound',
+      component: () => import('../views/NotFoundView.vue')
     }
   ]
 })

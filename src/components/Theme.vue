@@ -23,7 +23,6 @@ const currentTheme = computed(() => {
 
 <template>
   <v-theme-provider with-background :theme="currentTheme">
-    <p>{{ currentTheme }}</p>
     <slot />
   </v-theme-provider>
 </template>
